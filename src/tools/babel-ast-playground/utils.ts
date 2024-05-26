@@ -45,7 +45,7 @@ export declare const packages: {
 
 const getCode = async (url: string) => await (await fetch(url)).text()
 
-export const extraLibs = [
+export const getExtraLibs = async () => [
   {
     code: await getCode('https://esm.sh/@babel/types@7.24.6/lib/index.d.ts'),
     path: `file:///node_modules/@types/babel__types/index.d.ts`

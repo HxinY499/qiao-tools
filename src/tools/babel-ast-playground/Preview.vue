@@ -5,7 +5,7 @@ import { Tabs as ATabs } from '@arco-design/web-vue'
 import { IconCode, IconCodeBlock } from '@arco-design/web-vue/es/icon';
 import { useDebounceFn } from '@vueuse/core';
 import { codeToHtml } from 'shiki';
-import { defineExpose, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import VueJsonPretty from 'vue-json-pretty';
 
 import { CopyButton } from '@/components';

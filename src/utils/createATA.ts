@@ -1,10 +1,9 @@
 import { setupTypeAcquisition } from '@typescript/ata'
-import typescriprt from 'typescript'
 
-export default function createATA(onDownloadFile: (code: string, path: string) => void) {
+export default async function createATA(onDownloadFile: (code: string, path: string) => void) {
   const ata = setupTypeAcquisition({
     projectName: 'ata',
-    typescript: typescriprt,
+    typescript: await import('typescript'),
     logger: console,
     delegate: {
       receivedFile: (code, path) => {

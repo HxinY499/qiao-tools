@@ -67,7 +67,7 @@ import { Monaco, MonacoEditor } from '@/module';
 import { createATA } from '@/utils'
 
 import Preview from './Preview.vue';
-import { babel__standalone__type, extraLibs, initialCode, shikiLanguages } from './utils'
+import { babel__standalone__type, getExtraLibs, initialCode, shikiLanguages } from './utils'
 
 
 
@@ -75,19 +75,19 @@ const editor = ref<MonacoEditor>()
 const previewRef = ref()
 const code = useStorage<string>('BabelAstPlayground__code', initialCode, localStorage)
 const wholeAst = useStorage('BabelAstPlayground__wholeAst', false, localStorage)
-const outputFormat = useStorage('BabelAstPlayground__outputFormat', 'typescript', localStorage)
+const outputFormat = useStorage<typeof shikiLanguages[number]>('BabelAstPlayground__outputFormat', 'typescript', localStorage)
 
 const onMonacoMount = async (editorInstance: MonacoEditor, monacoInstance: Monaco) => {
   editor.value = editorInstance
 
-  const ata = createATA((code, path) => {
+  const ata = await createATA((code, path) => {
     if (path.includes('babel__standalone')) {
       code = babel__standalone__type(code)
     }
     monacoInstance.languages.typescript.typescriptDefaults.addExtraLib(code, `file://${path}`)
   });
 
-  extraLibs.forEach(lib => {
+  (await getExtraLibs()).forEach(lib => {
     monacoInstance.languages.typescript.typescriptDefaults.addExtraLib(lib.code, lib.path)
   })
 
@@ -104,7 +104,7 @@ const onMonacoMount = async (editorInstance: MonacoEditor, monacoInstance: Monac
   })
 }
 
-const outputFormatChange = (val: string) => {
+const outputFormatChange = (val: typeof shikiLanguages[number]) => {
   outputFormat.value = val
 }
 

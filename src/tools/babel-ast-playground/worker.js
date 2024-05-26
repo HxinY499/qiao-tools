@@ -22,7 +22,7 @@ async function doWork(sourceCode) {
     const code = transformCode(sourceCode)
     const url = URL.createObjectURL(new Blob([code], { type: 'application/javascript' }))
 
-    const importRes = await import(url)
+    const importRes = await import(/* @vite-ignore */ url)
     const ast = importRes.default
 
     let fileAst

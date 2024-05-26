@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "@arco-plugins/vite-vue": "^1.4.5",
-    "@babel/parser": "^7.24.5",
     "@rushstack/eslint-patch": "^1.8.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.12.10",

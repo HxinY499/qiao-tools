@@ -4,7 +4,6 @@ specifiers:
   '@arco-design/web-vue': ^2.55.2
   '@arco-plugins/vite-vue': ^1.4.5
   '@arco-themes/vue-qiao-tools': ^0.0.3
-  '@babel/parser': ^7.24.5
   '@guolao/vue-monaco-editor': ^1.5.1
   '@rushstack/eslint-patch': ^1.8.0
   '@types/lodash-es': ^4.17.12
@@ -51,7 +50,6 @@ dependencies:
 
 devDependencies:
   '@arco-plugins/vite-vue': 1.4.5
-  '@babel/parser': 7.24.5
   '@rushstack/eslint-patch': 1.10.2
   '@types/lodash-es': 4.17.12
   '@types/node': 20.12.10
