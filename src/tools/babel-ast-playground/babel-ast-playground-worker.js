@@ -1,4 +1,4 @@
-import Babel from 'https://esm.sh/@babel/standalone@7.24.6'
+self.importScripts('https://unpkg.com/@babel/standalone/babel.min.js')
 
 /* eslint-disable no-unused-vars */
 const consoleStyle = 'color: black; font-style: italic; background-color: yellow;padding: 2px'
@@ -17,7 +17,7 @@ self.onmessage = async (e) => {
 
 async function doWork(sourceCode) {
   try {
-    const t = Babel.packages.types
+    const t = self.Babel.packages.types
 
     const code = transformCode(sourceCode)
     const url = URL.createObjectURL(new Blob([code], { type: 'application/javascript' }))
@@ -32,7 +32,7 @@ async function doWork(sourceCode) {
     } else {
       fileAst = t.isFile(ast) ? ast : t.file(t.program([ast]))
     }
-    const targetCode = Babel.packages.generator.default(fileAst).code
+    const targetCode = self.Babel.packages.generator.default(fileAst).code
 
     self.postMessage({ targetCode, ast: ast, wholeAst: fileAst, success: true })
 
@@ -49,7 +49,7 @@ const consoleName = ['log', 'info', 'error', 'debug']
 
 function transformCode(sourceCode) {
   let defaultImportStatementCount = 0
-  const transformRes = Babel.transform(sourceCode, {
+  const transformRes = self.Babel.transform(sourceCode, {
     presets: ['typescript'],
     filename: 'playground.ts',
     plugins: [
@@ -74,11 +74,13 @@ function transformCode(sourceCode) {
               consoleName.includes(callee.property.name)
             ) {
               path.node.arguments.unshift(
-                Babel.packages.types.stringLiteral(
+                self.Babel.packages.types.stringLiteral(
                   'font-style: italic; background-color: green;padding: 2px'
                 )
               )
-              path.node.arguments.unshift(Babel.packages.types.stringLiteral('%c[from playground]'))
+              path.node.arguments.unshift(
+                self.Babel.packages.types.stringLiteral('%c[from playground]')
+              )
             }
           }
         }

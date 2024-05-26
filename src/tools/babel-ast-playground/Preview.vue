@@ -33,7 +33,7 @@ const previewOriginContent = {
     dirty: false
   }
 }
-const worker = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' })
+const worker = new Worker(new URL('./babel-ast-playground-worker.js', import.meta.url))
 
 const tabKey = ref('code')
 const error = ref<string>()

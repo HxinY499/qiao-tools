@@ -45,7 +45,9 @@
             minimap: {
               enabled: false,
             },
-          }"> 加载中 </VueMonacoEditor>
+          }">
+          <ASpin dot />
+        </VueMonacoEditor>
       </template>
       <template #second>
         <Preview :sourceCode="code" :wholeAst="wholeAst" :outputFormat="outputFormat" ref="previewRef" />
@@ -55,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { Button as AButton, Doption as ADoption, Dropdown as ADropdown, Split as ASplit, Tooltip as ATooltip } from '@arco-design/web-vue'
+import { Button as AButton, Doption as ADoption, Dropdown as ADropdown, Spin as ASpin, Split as ASplit, Tooltip as ATooltip } from '@arco-design/web-vue'
 import { IconQuestionCircle, IconRefresh } from '@arco-design/web-vue/es/icon';
 import { VueMonacoEditor } from '@guolao/vue-monaco-editor'
 import { useStorage } from '@vueuse/core';
