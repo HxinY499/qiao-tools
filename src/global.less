@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+  overflow: hidden;
+}
+
+.arco-trigger-arrow {
+  // arco-tooltip组件不显示箭头
+  display: none !important;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.15s ease-in-out;
+}
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(-90px);
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(80px);
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.not-found-enter-active {
+  transition: all 0.5s;
+}
+.not-found-enter-from {
+  opacity: 0;
+  transform: scale(2);
+}
+.not-found-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
