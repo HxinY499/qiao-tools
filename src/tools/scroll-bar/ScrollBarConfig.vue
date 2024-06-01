@@ -130,7 +130,7 @@ ${showWhenHover.value ? `
   <div class="flex flex-col h-[100vh] w-[100vw] box-border" :style="scrollStyle">
     <PageHeader title="scroll-bar可视化"></PageHeader>
     <div class="page-content flex-1 overflow-auto">
-      <div class="flex items-center justify-center gap-[20px]">
+      <div class="flex items-center flex-wrap justify-center gap-[20px]">
         <!-- setting-area -->
         <div class="p-6 flex flex-col gap-9 relative border-borderColor-2 border-r">
           <Tooltip content="恢复默认" position="right">

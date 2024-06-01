@@ -34,7 +34,7 @@
         </AButton>
       </ATooltip>
     </PageHeader>
-    <a-split class="size-full flex-1 min-h-0" min="80px">
+    <a-split class="size-full flex-1 min-h-0" min="80px" default-size="0.65">
       <template #first>
         <VueMonacoEditor @keydown.ctrl.s.prevent @keydown.meta.s.prevent language="typescript" v-model:value="code"
           path="babel-playground.ts" theme="vs-dark" @mount="onMonacoMount" :options="{
@@ -61,43 +61,26 @@ import { Button as AButton, Doption as ADoption, Dropdown as ADropdown, Spin as 
 import { IconQuestionCircle, IconRefresh } from '@arco-design/web-vue/es/icon';
 import { VueMonacoEditor } from '@guolao/vue-monaco-editor'
 import { useStorage } from '@vueuse/core';
-import { debounce } from 'lodash-es';
 import { ref } from 'vue';
 
 import { PageHeader } from '@/components';
 import { Monaco, MonacoEditor } from '@/module';
-import { createATA } from '@/utils'
 
 import Preview from './Preview.vue';
-import { babel__standalone__type, getExtraLibs, initialCode, shikiLanguages } from './utils'
-
-
+import { initialCode, shikiLanguages, useExtraLibs } from './utils'
 
 const editor = ref<MonacoEditor>()
+const monaco = ref<Monaco>()
 const previewRef = ref()
 const code = useStorage<string>('BabelAstPlayground__code', initialCode, localStorage)
 const wholeAst = useStorage('BabelAstPlayground__wholeAst', false, localStorage)
 const outputFormat = useStorage<typeof shikiLanguages[number]>('BabelAstPlayground__outputFormat', 'typescript', localStorage)
 
+useExtraLibs(monaco)
+
 const onMonacoMount = async (editorInstance: MonacoEditor, monacoInstance: Monaco) => {
-  editor.value = editorInstance
-
-  const ata = await createATA((code, path) => {
-    if (path.includes('babel__standalone')) {
-      code = babel__standalone__type(code)
-    }
-    monacoInstance.languages.typescript.typescriptDefaults.addExtraLib(code, `file://${path}`)
-  });
-
-  (await getExtraLibs()).forEach(lib => {
-    monacoInstance.languages.typescript.typescriptDefaults.addExtraLib(lib.code, lib.path)
-  })
-
-
-  editorInstance.onDidChangeModelContent(debounce(() => {
-    ata(editorInstance.getValue());
-  }, 300));
-  ata(editorInstance.getValue());
+  editor.value = editorInstance;
+  monaco.value = monacoInstance
 
   monacoInstance.languages.typescript.typescriptDefaults.setCompilerOptions({
     ...monacoInstance.languages.typescript.typescriptDefaults.getCompilerOptions(),

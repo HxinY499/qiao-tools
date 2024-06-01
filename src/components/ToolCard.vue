@@ -36,6 +36,11 @@ const gotoToolWithNewTab = (tool: ToolInfo) => {
   height: 50px;
   transition: all 200ms ease-in-out;
   will-change: height, box-shadow;
+
+  &>div:last-child {
+    transition: all 200ms ease-in-out;
+    opacity: 0;
+  }
 }
 
 .tool-card:hover {
@@ -44,6 +49,10 @@ const gotoToolWithNewTab = (tool: ToolInfo) => {
     height: 120px;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.05);
     border-radius: 0.375rem;
+
+    &>div:last-child {
+      opacity: 1;
+    }
   }
 }
 </style>
