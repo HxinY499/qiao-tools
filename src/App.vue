@@ -22,11 +22,11 @@ onErrorCaptured((error) => {
     </div>
 
     <router-view v-else v-slot="{ Component }">
-      <transition appear mode="out-in" name='fade'>
-        <keep-alive :include="['ToolWrapper']">
-          <component :is="Component"></component>
-        </keep-alive>
-      </transition>
+      <!-- <transition appear mode="out-in" name='fade'> -->
+      <keep-alive :include="['ToolWrapper']">
+        <component :is="Component"></component>
+      </keep-alive>
+      <!-- </transition> -->
     </router-view>
   </div>
 
