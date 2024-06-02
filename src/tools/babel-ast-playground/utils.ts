@@ -66,27 +66,27 @@ export const useExtraLibs = async (monaco: Ref<Monaco | undefined>) => {
 
   ;[
     {
-      url: 'https://esm.sh/@babel/types@7.24.6/lib/index.d.ts',
+      url: 'https://unpkg.com/@babel/types@7.24.6/lib/index.d.ts',
       path: `file:///node_modules/@types/babel__types/index.d.ts`
     },
     {
-      url: 'https://esm.sh/@babel/parser@7.24.6/typings/babel-parser.d.ts',
+      url: 'https://unpkg.com/@babel/parser@7.24.6/typings/babel-parser.d.ts',
       path: `file:///node_modules/@types/babel__parser/index.d.ts`
     },
     {
-      url: 'https://esm.sh/@types/babel__traverse@7.20.6/index.d.ts',
+      url: 'https://unpkg.com/@types/babel__traverse@7.20.6/index.d.ts',
       path: `file:///node_modules/@types/babel__traverse/index.d.ts`
     },
     {
-      url: 'https://esm.sh/@types/babel__template@7.4.4/index.d.ts',
+      url: 'https://unpkg.com/@types/babel__template@7.4.4/index.d.ts',
       path: `file:///node_modules/@types/babel__template/index.d.ts`
     },
     {
-      url: 'https://esm.sh/@types/babel-generator@6.25.8/index.d.ts',
+      url: 'https://unpkg.com/@types/babel-generator@6.25.8/index.d.ts',
       path: `file:///node_modules/@types/babel-generator/index.d.ts`
     },
     {
-      url: 'https://esm.sh/@types/babel__standalone@7.1.7/index.d.ts',
+      url: 'https://unpkg.com/@types/babel__standalone@7.1.7/index.d.ts',
       path: `file:///node_modules/@types/babel__standalone/index.d.ts`,
       babel__standalone: true
     }

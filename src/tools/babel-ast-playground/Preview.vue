@@ -46,7 +46,10 @@ const renderCodeArea = async (force?: boolean) => {
     lang: props.outputFormat,
     theme: 'github-light'
   })
-  document.getElementById('shiki-code')!.innerHTML = shikiHtml
+  const codeArea = document.getElementById('shiki-code')
+  if (codeArea) {
+    codeArea.innerHTML = shikiHtml
+  }
 
   previewOriginContent.code.dirty = false
 }

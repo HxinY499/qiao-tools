@@ -1,4 +1,4 @@
-self.importScripts('https://unpkg.com/@babel/standalone/babel.min.js')
+self.importScripts('https://unpkg.com/@babel/standalone@7.24.6/babel.min.js')
 
 /* eslint-disable no-unused-vars */
 const consoleStyle = 'color: black; font-style: italic; background-color: yellow;padding: 2px'

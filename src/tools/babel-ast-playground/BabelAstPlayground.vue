@@ -47,6 +47,7 @@
             },
           }">
           <ASpin dot />
+          <template #failure>抱歉，编辑器加载失败，请刷新重试</template>
         </VueMonacoEditor>
       </template>
       <template #second>
@@ -59,7 +60,7 @@
 <script setup lang="ts">
 import { Button as AButton, Doption as ADoption, Dropdown as ADropdown, Spin as ASpin, Split as ASplit, Tooltip as ATooltip } from '@arco-design/web-vue'
 import { IconQuestionCircle, IconRefresh } from '@arco-design/web-vue/es/icon';
-import { VueMonacoEditor } from '@guolao/vue-monaco-editor'
+import { loader, VueMonacoEditor } from '@guolao/vue-monaco-editor'
 import { useStorage } from '@vueuse/core';
 import { ref } from 'vue';
 
@@ -68,6 +69,12 @@ import { Monaco, MonacoEditor } from '@/module';
 
 import Preview from './Preview.vue';
 import { initialCode, shikiLanguages, useExtraLibs } from './utils'
+
+loader.config({
+  paths: {
+    vs: 'https://unpkg.com/monaco-editor@0.43.0/min/vs'
+  },
+})
 
 const editor = ref<MonacoEditor>()
 const monaco = ref<Monaco>()
