@@ -46,7 +46,7 @@ const onCopy = () => {
 </script>
 
 <template>
-  <Button @click="onCopy" type="text" class="copy-button text-[16px]" v-bind="arcoProps">
+  <Button @click.stop="onCopy" type="text" class="copy-button text-[16px]" v-bind="arcoProps">
     <template v-if="copyFeedback">
       <slot name="success" v-if="$slots.success"></slot>
       <span v-else class="text-[#00B42A]">

@@ -3,7 +3,8 @@ import { setupTypeAcquisition } from '@typescript/ata'
 export default async function createATA(onDownloadFile: (code: string, path: string) => void) {
   const ata = setupTypeAcquisition({
     projectName: 'ata',
-    typescript: await import('typescript'),
+    // @ts-ignore
+    typescript: await import('https://esm.sh/typescript@5.4.5'),
     logger: console,
     delegate: {
       receivedFile: (code, path) => {
