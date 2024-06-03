@@ -17,6 +17,7 @@
     "@arco-themes/vue-qiao-tools": "^0.0.3",
     "@guolao/vue-monaco-editor": "^1.5.1",
     "@typescript/ata": "^0.9.4",
+    "@vercel/speed-insights": "^1.0.11",
     "@vueuse/core": "^10.9.0",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",

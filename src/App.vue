@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { SpeedInsights } from "@vercel/speed-insights/vue"
 import { ref } from 'vue';
 import { onErrorCaptured } from 'vue';
 import { RouterView } from 'vue-router'
@@ -16,6 +17,7 @@ onErrorCaptured((error) => {
 
 
 <template>
+  <SpeedInsights />
   <div>
     <div v-if="err">
       <StateOutput content="抱歉，页面出错了🙇"></StateOutput>
