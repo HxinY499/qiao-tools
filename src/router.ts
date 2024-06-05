@@ -4,6 +4,7 @@ import { defineAsyncComponent } from 'vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import allTools from './all-tool'
+import { entry } from './buried-point'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -23,7 +24,11 @@ const routes: RouteRecordRaw[] = [
       component: defineAsyncComponent({
         loader: tool.component
       }),
-      meta: { KeepAlive: tool.keepAlive ?? false }
+      meta: { KeepAlive: tool.keepAlive ?? false },
+      beforeEnter: () => {
+        entry(tool.name)
+        return true
+      }
     })) as RouteRecordRaw[]
   },
   {

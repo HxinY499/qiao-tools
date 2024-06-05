@@ -19,6 +19,8 @@
     "@typescript/ata": "^0.9.4",
     "@vercel/speed-insights": "^1.0.11",
     "@vueuse/core": "^10.9.0",
+    "bowser": "^2.11.0",
+    "dayjs": "^1.11.11",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",
     "shiki": "^1.5.2",

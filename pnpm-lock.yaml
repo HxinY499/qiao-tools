@@ -15,6 +15,8 @@ specifiers:
   '@vue/eslint-config-typescript': ^13.0.0
   '@vueuse/core': ^10.9.0
   autoprefixer: ^10.4.19
+  bowser: ^2.11.0
+  dayjs: ^1.11.11
   eslint: ^8.57.0
   eslint-plugin-simple-import-sort: ^12.0.0
   eslint-plugin-unused-imports: ^3.2.0
@@ -43,6 +45,8 @@ dependencies:
   '@typescript/ata': 0.9.4_typescript@5.4.5
   '@vercel/speed-insights': 1.0.11_vrx254t7qocqjfd6x5hvrb5fgi
   '@vueuse/core': 10.9.0_vue@3.4.27
+  bowser: 2.11.0
+  dayjs: 1.11.11
   lodash-es: 4.17.21
   pinia: 2.1.7_lku3umiefploqzvdryeqiyorrq
   shiki: 1.5.2
@@ -1424,7 +1428,7 @@ packages:
   /@vueuse/shared/10.9.0_vue@3.4.27:
     resolution: {integrity: sha512-Uud2IWncmAfJvRaFYzv5OHDli+FbOzxiVEQdLCKQKLyhz94PIyFC3CHcH7EDMwIn8NPtD06+PNbC/PiO0LGLtw==}
     dependencies:
-      vue-demi: 0.14.7_vue@3.4.27
+      vue-demi: 0.14.8_vue@3.4.27
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -1543,6 +1547,10 @@ packages:
   /boolbase/1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
+
+  /bowser/2.11.0:
+    resolution: {integrity: sha512-AlcaJBi/pqqJBIQ8U9Mcpc9i8Aqxn88Skv5d+xBX006BY5u8N3mGLHa5Lgppa7L/HfwgwLgZ6NYs+Ag6uUmJRA==}
+    dev: false
 
   /brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}

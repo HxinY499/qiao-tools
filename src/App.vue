@@ -4,12 +4,14 @@ import { ref } from 'vue';
 import { onErrorCaptured } from 'vue';
 import { RouterView } from 'vue-router'
 
+import { errorCapture } from '@/buried-point'
 import { StateOutput } from '@/components';
 
 const err = ref<Error>()
 
 onErrorCaptured((error) => {
   console.error('Error captured in App.vue:', error)
+  errorCapture(error)
 
   err.value = error
 })
